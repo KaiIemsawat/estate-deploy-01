@@ -276,34 +276,39 @@ const Search = () => {
 
             {/* Right section */}
             <div className="p-7">
-                <h2 className="text-3xl font-semibold text-primary-500">
-                    Listings:
-                </h2>
-                <div className="py-2 flex flex-wrap gap-3">
-                    {!loading && listings.length === 0 && (
-                        <p className="text-xl text-optional-500 font-light">
-                            No listing found...
-                        </p>
-                    )}
-                    {loading && (
-                        <p className="text-xl text-optional-500 font-light">
-                            Loading...
-                        </p>
-                    )}
-                    {!loading &&
-                        listings &&
-                        listings.map((listing) => (
-                            <ListingItem key={listing._id} listing={listing} />
-                        ))}
-                    {showMore && (
-                        <button
-                            className="border border-optional-400 text-optional-500 px-3 py-2 rounded-md uppercase hover:bg-optional-400  hover:text-effect-300 duration-200 w-[240px] text-center mx-auto my-4"
-                            onClick={onShowMoreClick}
-                        >
-                            Show More
-                        </button>
-                    )}
+                <div>
+                    <h2 className="text-3xl font-semibold text-primary-500">
+                        Listings:
+                    </h2>
+                    <div className="py-2 flex flex-wrap gap-3">
+                        {!loading && listings.length === 0 && (
+                            <p className="text-xl text-optional-500 font-light">
+                                No listing found...
+                            </p>
+                        )}
+                        {loading && (
+                            <p className="text-xl text-optional-500 font-light">
+                                Loading...
+                            </p>
+                        )}
+                        {!loading &&
+                            listings &&
+                            listings.map((listing) => (
+                                <ListingItem
+                                    key={listing._id}
+                                    listing={listing}
+                                />
+                            ))}
+                    </div>
                 </div>
+                {showMore && (
+                    <button
+                        className="border border-optional-400 text-optional-500 px-3 py-2 rounded-md uppercase hover:bg-optional-400  hover:text-effect-300 duration-200 w-[240px] text-center mx-auto my-4"
+                        onClick={onShowMoreClick}
+                    >
+                        Show More
+                    </button>
+                )}
             </div>
         </div>
     );
